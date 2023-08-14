@@ -12,4 +12,13 @@ class Book < Item
   def can_be_archived?
     super || bad_cover?
   end
+
+  def to_h
+    {
+      'publisher' => @publisher,
+      'publish_date' => @publish_date,
+      'cover_state' => @cover_state
+    }
+  end
+
 end
