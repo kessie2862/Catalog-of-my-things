@@ -12,6 +12,6 @@ class Label
     return if @items.include?(item)
 
     @items << item
-    item.label = self
+    item.label = self unless item.label == self
   end
 end
