@@ -21,4 +21,7 @@ class Book < Item
     }
   end
 
+  def bad_cover?
+    @cover_state == 'bad'
+  end
 end
