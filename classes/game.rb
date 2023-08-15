@@ -1,8 +1,10 @@
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(id, genre, author, source, label, publish_date, archived, multiplayer, last_played_at)
-    super(id, genre, author, source, label, publish_date, archived)
+   attr_accessor :multiplayer, :last_played_at
+
+  def initialize(id, title, author, source, label, publish_date, archived, multiplayer, last_played_at)
+    super(id, title, author, source, label, publish_date, archived)
     @multiplayer = multiplayer
     @last_played_at = last_played_at
   end 
