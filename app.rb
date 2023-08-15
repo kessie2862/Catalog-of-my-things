@@ -50,7 +50,6 @@ class App
     game.add_author(author)
     game.add_genre(game_genre)
 
-
     @games << game
 
     puts 'Game added successfully'
