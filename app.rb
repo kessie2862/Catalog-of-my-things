@@ -31,4 +31,27 @@ class App
 
     puts 'Music album created successfully'
   end
+
+  def add_game
+    print 'Last played at (YYYY-MM-DD): '
+    last_played_at = Date.parse(gets.chomp)
+    print 'Is it multiplayer? (yes/no): '
+    multiplayer = gets.chomp.downcase == 'yes'
+
+    puts 'Enter game details:'
+    print 'Game title: '
+    title = gets.chomp
+    print 'Game author: '
+    author = gets.chomp
+    print 'Game genre: '
+    gets.chomp
+    game = Game.new(multiplayer, last_played_at, Date.today)
+    game.label = title
+    game.add_author(author)
+    game.add_genre(game_genre)
+
+    @games << game
+
+    puts 'Game added successfully'
+  end
 end
