@@ -1,11 +1,27 @@
 class Author
-  attr_accessor :id, :first_name, :last_name, :items
+  attr_reader :id, :items, :first_name, :last_name
 
-  def initialize(id, first_name, last_name)
-    @id = id
+  def initialize(first_name, last_name)
+    @id = rand(1..1_000)
     @first_name = first_name
     @last_name = last_name
     @items = []
+  end
+
+  def to_h
+    {
+      'id' => @id,
+      'first_name' => @first_name,
+      'last_name' => @last_name,
+      'items' => @items.map(&:to_h)
+    }
+  end
+
+  def other_data
+    {
+      'first_name' => @first_name,
+      'last_name' => @last_name
+    }
   end
 
   def add_item(item)

@@ -1,21 +1,28 @@
 require './classes/item'
 require 'date'
+
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(multiplayer, last_played, publish_date)
-    super(publish_date)
+  def initialize(publish_date, multiplayer, last_played)
     @multiplayer = multiplayer
-    @last_played = last_played
+    @last_played_at = last_played
+    super(publish_date)
+  end
+
+  def to_h
+    {
+      'id' => @id,
+      'publish_date' => @publish_date,
+      'multiplayer' => @multiplayer,
+      'last_played' => @last_played_at
+    }
   end
 
   def can_be_archived?
-    super && (last_played_at < (Date.today - (365 * 2)))
-  end
+    last_date = Date.parse(@last_played_at)
+    return true if (Time.now.year - last_date.year) > 2 and Item.new(@publish_date).can_be_archived?
 
-  def add_item(item)
-    @items ||= [] # Initialize the collection if it doesn't exist
-    @items << item
-    item.game = self # Set the game property of the item
+    false
   end
 end
