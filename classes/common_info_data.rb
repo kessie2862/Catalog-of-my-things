@@ -1,4 +1,4 @@
-equire_relative 'Game/author'
+require_relative 'Game/author'
 require_relative 'Book/label'
 require_relative 'Music/genre'
 
