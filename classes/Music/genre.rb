@@ -1,8 +1,8 @@
 class Genre
-  attr_accessor :id, :name, :items
+  attr_accessor :name, :items
 
   def initialize(name)
-    @id = generate_id
+    @id = rand(0..500)
     @name = name
     @items = []
   end
@@ -12,7 +12,16 @@ class Genre
     item.genre = self
   end
 
-  def generate_id
-    rand(1..1000)
+  def to_h
+    {
+      'name' => @name,
+      'items' => @items.map(&:to_h)
+    }
+  end
+
+  def other_data
+    {
+      'name' => @name
+    }
   end
 end
