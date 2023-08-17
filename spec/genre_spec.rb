@@ -4,7 +4,7 @@ require_relative '../classes/item'
 
 describe Genre do
   let(:genre) { Genre.new('Action') }
-  let(:item) { Item.new('2000-01-01') }  
+  let(:item) { Item.new('2000-01-01') }
 
   describe '#add_item' do
     it 'adds the item to the items array' do
@@ -14,7 +14,7 @@ describe Genre do
 
     it 'does not add the item if it is already in the items array' do
       genre.add_item(item)
-      genre.add_item(item)  
+      genre.add_item(item)
       expect(genre.items.count(item)).to eq(1)
     end
 
