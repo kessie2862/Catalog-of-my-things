@@ -2,7 +2,6 @@
 
 <div align="center">
   <h2>📖 Ruby Group Capstone - Catalog of My Things</h2>
-
 </div>
 
 <!-- TABLE OF CONTENTS -->
