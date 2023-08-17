@@ -2,7 +2,6 @@ require_relative '../classes/Game/game'
 require_relative '../classes/item'
 
 RSpec.describe Game do
-
   describe '#can_be_archived?' do
     context 'when last played more than 2 years ago and item can be archived' do
       it 'returns true' do

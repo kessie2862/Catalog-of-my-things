@@ -1,5 +1,5 @@
-require_relative '../classes/GAme/author'  
-require_relative '../classes/item'   
+require_relative '../classes/GAme/author'
+require_relative '../classes/item'
 
 RSpec.describe Author do
   describe '#to_h' do
@@ -11,7 +11,7 @@ RSpec.describe Author do
         'last_name' => 'Doe',
         'items' => []
       }
-      
+
       expect(author.to_h).to eq(expected_hash)
     end
   end
@@ -19,9 +19,9 @@ RSpec.describe Author do
   describe '#add_item' do
     it 'adds an item to the author' do
       author = Author.new('Jane', 'Smith')
-      item = Item.new('2022-01-01')  
+      item = Item.new('2022-01-01')
       author.add_item(item)
-      
+
       expect(author.items).to include(item)
       expect(item.author).to eq(author)
     end
@@ -34,7 +34,7 @@ RSpec.describe Author do
         'first_name' => 'Alice',
         'last_name' => 'Johnson'
       }
-      
+
       expect(author.other_data).to eq(expected_data)
     end
   end
