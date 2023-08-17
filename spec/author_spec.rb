@@ -1,4 +1,4 @@
-require_relative '../classes/GAme/author'
+require_relative '../classes/Game/author'
 require_relative '../classes/item'
 
 RSpec.describe Author do
