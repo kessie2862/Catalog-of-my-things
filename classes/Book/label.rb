@@ -1,17 +1,38 @@
 class Label
-  attr_accessor :items, :name, :id
+  attr_reader :id, :title, :color
+  attr_accessor :items
 
   def initialize(title, color)
-    @id = Random.rand(1..500)
-    @name = title
+    @id = generate_id
+    @title = title
     @color = color
     @items = []
   end
 
   def add_item(item)
-    return if @items.include?(item)
-
     @items << item
-    item.label = self unless item.label == self
+    item.label = self
+  end
+
+  def to_h
+    {
+      id: @id,
+      title: @title,
+      color: @color,
+      items: @items.map(&:to_h)
+    }
+  end
+
+  def other_data
+    {
+      title: @title,
+      color: @color
+    }
+  end
+
+  private
+
+  def generate_id
+    rand(1..1000)
   end
 end
